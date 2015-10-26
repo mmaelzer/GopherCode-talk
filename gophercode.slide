@@ -1,0 +1,40 @@
+GopherCode
+A Brief Intro to Go
+4 Nov 2015
+
+Mike Maelzer
+mike.maelzer@socialcode.com
+
+* Is Go the hot new thing?
+
+Not really. Just another tool in the toolbox.
+
+- Maybe not so bad?
+- What do you look for a language?
+- What a dream
+
+* So Go..
+- Statically typed
+- Garbage collected
+- Quick to compile
+- Concurrent support via channels
+- Omg. tools
+
+* Hello World
+.play helloworld.go
+
+* Types and Packages
+.code sums.go
+
+* Packages continued
+.play hellosums.go
+
+* GOPATH Environment Variable
+.code gopath.txt
+
+* Let's build a crawler
+.play crawler1.go /START OMIT/,/END OMIT/
+
+* Let's make it better
+
+* Test it!
