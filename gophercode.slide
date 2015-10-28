@@ -5,25 +5,30 @@ A Brief Intro to Go
 Mike Maelzer
 mike.maelzer@socialcode.com
 
-* Is Go the hot new thing?
-
-Not really. Just another tool in the toolbox.
-
-- Maybe not so bad?
-- What do you look for a language?
-- What a dream
-
-* So Go..
+* What is Go?
+- Compiled (quickly)
+- Garbaged Collected
 - Statically typed
-- Garbage collected
-- Quick to compile
-- Concurrent support via channels
-- Omg. tools
+- Concurrent
+- Tooling included
+
+* Raison d'etre
+The goals of the Go project were to eliminate the slowness and clumsiness of software development at Google, and thereby to make the process more productive and scalable. The language was designed by and for people who write—and read and debug and maintain—large software systems.
+
+Go's purpose is therefore not to do research into programming language design; it is to improve the working environment for its designers and their coworkers. Go is more about software engineering than programming language research.
+
+.link https://talks.golang.org/2012/splash.article
 
 * Hello World
 .play helloworld.go
 
-* Types and Packages
+* Types
+
+* Functions
+
+* Structs
+
+* Packages
 .code sums.go
 
 * Packages continued
@@ -38,3 +43,6 @@ Not really. Just another tool in the toolbox.
 * Let's make it better
 
 * Test it!
+
+* This presentation can be found at
+.link https://github.com/mmaelzer/GopherCode-talk
