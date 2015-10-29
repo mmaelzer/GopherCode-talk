@@ -5,12 +5,14 @@ A Brief Intro to Go
 Mike Maelzer
 mike.maelzer@socialcode.com
 
+
 * What is Go?
 - Compiled (quickly)
 - Garbaged Collected
 - Statically typed
 - Concurrent
 - Tooling included
+
 
 * Raison d'etre
 The goals of the Go project were to eliminate the slowness and clumsiness of software development at Google, and thereby to make the process more productive and scalable. The language was designed by and for people who write—and read and debug and maintain—large software systems.
@@ -19,10 +21,64 @@ Go's purpose is therefore not to do research into programming language design; i
 
 .link https://talks.golang.org/2012/splash.article
 
+
 * Hello World
 .play helloworld.go
 
-* Types
+
+* Types (numeric)
+
+*uint8*       unsigned 8-bit integer (0 to 255)
+*uint16*      unsigned 16-bit integer (0 to 65535)
+*uint32*      unsigned 32-bit integer (0 to 4294967295)
+*uint64*      unsigned 64-bit integer (0 to 18446744073709551615)
+
+*int8*        signed 8-bit integer (-128 to 127)
+*int16*       signed 16-bit integer (-32768 to 32767)
+*int32*       signed 32-bit integer (-2147483648 to 2147483647)
+*int64*       signed 64-bit integer (-9223372036854775808 to 9223372036854775807)
+
+*float32*     IEEE-754 32-bit floating-point number
+*float64*     IEEE-754 64-bit floating-point number
+
+*complex64*   complex number with float32 real and imaginary parts
+*complex128*  complex number with float64 real and imaginary parts
+
+
+* Types (bools & strings)
+
+*bool*        boolean type as `true` or `false`
+
+	isTrue := true
+
+	var isFalse bool
+	isFalse = false
+
+*string*      read-only slice of bytes
+
+	justString := "this is a string 😅 "
+	anotherString := `Hey look, a
+						multiline
+						string. Yay.`
+
+* Types (collections)
+
+*array*       a numbered sequence of elements of a single type
+*slice*       a descriptor for a contiguous segment of an underlying array
+*map*         a group of elements with a value indexed by a unique key
+
+*struct*      a sequence of named elements (fields) each of which has a name and a type
+*func*        a function type 
+*interface*   an interface type specifies a method set called its interface
+
+*chan*        a channel type used for communication
+
+*byte*        alias for uint8
+*rune*        alias for int32
+
+* Fun with types
+
+.play types.go
 
 * Functions
 
