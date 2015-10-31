@@ -8,7 +8,7 @@ mike.maelzer@socialcode.com
 
 * What is Go?
 - Compiled (quickly)
-- Garbaged Collected
+- Garbaged collected
 - Statically typed
 - Concurrent
 - Tooling included
@@ -17,7 +17,7 @@ mike.maelzer@socialcode.com
 * Raison d'etre
 The goals of the Go project were to eliminate the slowness and clumsiness of software development at Google, and thereby to make the process more productive and scalable. The language was designed by and for people who write—and read and debug and maintain—large software systems.
 
-Go's purpose is therefore not to do research into programming language design; it is to improve the working environment for its designers and their coworkers. Go is more about software engineering than programming language research.
+Go's purpose is therefore not to do research into programming language design; it is to improve the working environment for its designers and their coworkers.
 
 .link https://talks.golang.org/2012/splash.article
 
@@ -56,16 +56,30 @@ Go's purpose is therefore not to do research into programming language design; i
 
 *string*      read-only slice of bytes
 
-	justString := "this is a string 😅 "
-	anotherString := `Hey look, a
-						multiline
-						string. Yay.`
+.play strings.go /START OMIT/,/END OMIT/
 
 * Types (collections)
 
 *array*       a numbered sequence of elements of a single type
+
+  array := [2]string{"Bob", "Linda"}
+  // or
+  var arr [2]string
+  arr[0] = "Al"
+  arr[1] = "Gloria"
+
 *slice*       a descriptor for a contiguous segment of an underlying array
+
+  slice := []string{"Tina", "Gene", "Louise"}
+
 *map*         a group of elements with a value indexed by a unique key
+
+  booleans := map[bool]string {
+    true: "true",
+    false: "false"
+  }
+
+* types (other)
 
 *struct*      a sequence of named elements (fields) each of which has a name and a type
 *func*        a function type 
