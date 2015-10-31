@@ -58,6 +58,7 @@ Go's purpose is therefore not to do research into programming language design; i
 
 .play strings.go /START OMIT/,/END OMIT/
 
+
 * Types (collections)
 
 *array*       a numbered sequence of elements of a single type
@@ -79,24 +80,58 @@ Go's purpose is therefore not to do research into programming language design; i
     false: "false"
   }
 
-* types (other)
+
+* types (structs)
 
 *struct*      a sequence of named elements (fields) each of which has a name and a type
+
+  type Dog struct {
+    Name string
+    Age uint32
+  }
+
+  scoops := Dog{"Scoops", 3}
+  benji := Dog{
+    Name: "Benji",
+    Age: 12,
+  }
+
+* types (functions)
+
 *func*        a function type 
+
+.play func.go /START OMIT/,/END OMIT/
+
+
+* methods
+
+methods can be defined for any named type (except a pointer or an interface)
+
+.play methods.go /START OMIT/,/END OMIT/
+
+
+* types (interfaces)
+
 *interface*   an interface type specifies a method set called its interface
+
+.play interfaces.go /START OMIT/,/END OMIT/
+
+
+* types (channels)
 
 *chan*        a channel type used for communication
 
+
+* types (misc)
+
 *byte*        alias for uint8
 *rune*        alias for int32
+
 
 * Fun with types
 
 .play types.go
 
-* Functions
-
-* Structs
 
 * Packages
 .code sums.go
