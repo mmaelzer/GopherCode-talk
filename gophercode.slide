@@ -121,11 +121,30 @@ methods can be defined for any named type (except a pointer or an interface)
 
 *chan*        a channel type used for communication
 
+.play channels.go /START OMIT/,/END OMIT/
+
 
 * types (misc)
 
 *byte*        alias for uint8
 *rune*        alias for int32
+
+*error*       an error type with the following interface
+
+  type error interface {
+    Error() string
+  }
+
+Example custom error
+
+  type MyError struct {
+    msg string
+    Code int
+  }
+
+  func (e *MyError) Error() string {
+    return e.msg
+  }
 
 
 * Fun with types
@@ -149,5 +168,5 @@ methods can be defined for any named type (except a pointer or an interface)
 
 * Test it!
 
-* This presentation can be found at
+* This presentation along with sample code can be found at
 .link https://github.com/mmaelzer/GopherCode-talk
