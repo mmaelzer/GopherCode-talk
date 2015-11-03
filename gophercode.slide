@@ -85,7 +85,7 @@ Go's purpose is therefore not to do research into programming language design; i
 
 *struct*      a sequence of named elements (fields) each of which has a name and a type
 
-  type Dog struct {
+  type Dog struct { 
     Name string
     Age uint32
   }
@@ -94,6 +94,30 @@ Go's purpose is therefore not to do research into programming language design; i
   benji := Dog{
     Name: "Benji",
     Age: 12,
+  }
+
+
+* types (anonymous structs)
+
+  me := struct {
+    Name string
+    Eyes int
+    Breathing bool
+  }, {
+    "Mike",
+    2,
+    true,
+  }
+
+or
+
+  folks := []struct {
+    Name string
+    Literate bool
+  }, {
+    {"Mike", false},
+    {"Jacob", true},
+    {"Fred", true},
   }
 
 * types (functions)
@@ -129,13 +153,13 @@ methods can be defined for any named type (except a pointer or an interface)
 *byte*        alias for uint8
 *rune*        alias for int32
 
-*error*       an error type with the following interface
+*error*       a type with the following interface
 
   type error interface {
     Error() string
   }
 
-Example custom error
+Example of a custom error
 
   type MyError struct {
     msg string
@@ -155,16 +179,40 @@ Example custom error
 * Packages
 .code sums.go
 
+
 * Packages continued
 .play hellosums.go
 
+
 * GOPATH Environment Variable
 .code gopath.txt
+
+
+* Tooling
+Go comes with an extensive set of tooling and opinions to make getting started really easy
+
+- *go* *build* - compile a go program
+- *go* *run* - compile and run a go program
+- *go* *test* - runs tests against files named `*_test.go` - can generate coverage reports by running with `-cover`
+
+* Tooling (continued)
+
+- *go* *get* - fetch third party packages and install them to bin/ and/or pkg/
+- *godoc* - generate documentation for your code using comments and method signatures
+- *go* *tool* *cover* - parses coverage profiles from running `go` `test` `-coverprofile=cover.out`
+- *gofmt* - automatically formats go code to canonical go format (think: white space, curly braces, line breaks)
+- *golint* - prints out style mistakes (think: variable naming, comments)
+- *present* - a tool to give presentations, currently being used for this talk
+
+
+
 
 * Let's build a crawler
 .play crawler1.go /START OMIT/,/END OMIT/
 
 * Let's make it better
+
+
 
 * Test it!
 
