@@ -3,15 +3,33 @@ A Brief Intro to Go
 4 Nov 2015
 
 Mike Maelzer
-mike.maelzer@socialcode.com
+
+
+* Talk Summary
+- What is Go
+- Types
+- Packages
+- Tooling
+- Examples
 
 
 * What is Go?
+Created at Google in 2009 by
+- *Robert* *Griesmer*: V8 Engine, Java Hotspot VM, Strongtalk
+- *Ken* *Thompson*: Unix, ed, B programming language, Plan 9, UTF-8
+- *Rob* *Pike*: Plan 9, UTF-8, acme
+
+
+* Language Features
 - Compiled (quickly)
 - Garbaged collected
 - Statically typed
 - Concurrent
 - Tooling included
+
+* Speed
+
+.code webserver_test.txt
 
 
 * Raison d'etre
@@ -85,12 +103,17 @@ Go's purpose is therefore not to do research into programming language design; i
 
 *struct*      a sequence of named elements (fields) each of which has a name and a type
 
+define
+
   type Dog struct { 
     Name string
-    Age uint32
+    Age  uint32
   }
 
+instantiate
+
   scoops := Dog{"Scoops", 3}
+
   benji := Dog{
     Name: "Benji",
     Age: 12,
@@ -100,8 +123,8 @@ Go's purpose is therefore not to do research into programming language design; i
 * types (anonymous structs)
 
   me := struct {
-    Name string
-    Eyes int
+    Name      string
+    Eyes      int
     Breathing bool
   }, {
     "Mike",
@@ -112,8 +135,8 @@ Go's purpose is therefore not to do research into programming language design; i
 or
 
   folks := []struct {
-    Name string
-    Literate bool
+    Name      string
+    Literate  bool
   }, {
     {"Mike", false},
     {"Jacob", true},
@@ -136,7 +159,7 @@ methods can be defined for any named type (except a pointer or an interface)
 
 * types (interfaces)
 
-*interface*   an interface type specifies a method set called its interface
+*interface*   specifies a set of methods
 
 .play interfaces.go /START OMIT/,/END OMIT/
 
@@ -172,7 +195,6 @@ Example of a custom error
 
 
 * Fun with types
-
 .play types.go
 
 
@@ -205,16 +227,21 @@ Go comes with an extensive set of tooling and opinions to make getting started r
 - *present* - a tool to give presentations, currently being used for this talk
 
 
+* Let's build a web server
+.play webserver.go /START OMIT/,/END OMIT/
 
 
 * Let's build a crawler
 .play crawler1.go /START OMIT/,/END OMIT/
 
+
 * Let's make it better
+.play crawler2.go /START OMIT/,/END OMIT/
 
 
+* Let's use channels
+.play crawler3.go /START OMIT/,/END OMIT/
 
-* Test it!
 
 * This presentation along with sample code can be found at
 .link https://github.com/mmaelzer/GopherCode-talk

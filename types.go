@@ -10,5 +10,6 @@ func (i Int) Plus(j Int) Int {
 
 func main() {
 	i := Int(1)
-	fmt.Println(i.Plus(Int(2)))
+	j := Int(2)
+	fmt.Println(i.Plus(j))
 }

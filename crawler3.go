@@ -15,7 +15,6 @@ func init() {
 		"https://www.google.com",
 		"https://www.facebook.com",
 		"https://www.yahoo.com",
-		"https://socialcode.com",
 		"https://www.wikipedia.org",
 		"https://golang.org",
 	}
@@ -24,25 +23,29 @@ func init() {
 func main() {
 	start := time.Now()
 	// START OMIT
-	data := []string{} // HL
+	c := make(chan string, len(urls)) // HL
+
+	data := make([]string, len(urls))
 
 	for _, url := range urls {
-		response, err := http.Get(url) // HL
-		if err != nil {
-			log.Fatal(err)
-		}
+		go func(url string) {
+			response, err := http.Get(url)
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer response.Body.Close()
+			body, err := ioutil.ReadAll(response.Body)
+			if err != nil {
+				log.Fatal(err)
+			}
+			c <- string(body) // HL
+		}(url)
+	}
 
-		defer response.Body.Close() // HL
-
-		body, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		data = append(data, string(body)) // HL
+	for i := 0; i < len(urls); i++ {
+		data[i] = <-c // HL
 	}
 	// END OMIT
-	// fmt.Println(data)
 	fmt.Printf("crawled %d urls in %s", len(data), time.Now().Sub(start))
 }
 

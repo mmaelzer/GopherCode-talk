@@ -1,11 +1,11 @@
-package main
+package main // HL
 
 import (
 	"fmt"
 
-	"github.com/mmaelzer/sums"
+	"github.com/mmaelzer/sums" // HL
 )
 
 func main() {
-	fmt.Println("Hello", sums.SumVariadic(1, 2, 3, 4, 5))
+	fmt.Println("Hello", sums.SumAny(1, 2, 3, 4, 5))
 }
