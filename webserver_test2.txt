@@ -1,0 +1,21 @@
+// node.js web server (v4.2.1) - webserver.js
+❯ wrk -t10 -d10s http://127.0.0.1:7070
+Running 10s test @ http://127.0.0.1:7070
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   559.95us  447.54us  19.52ms   99.10%
+    Req/Sec     1.85k   163.12     1.99k    96.53%
+  186063 requests in 10.10s, 27.68MB read
+Requests/sec:  18422.35
+Transfer/sec:      2.74MB
+
+// Go Web Server - webserver.go
+❯ wrk -t10 -d10s http://127.0.0.1:8080
+Running 10s test @ http://127.0.0.1:8080
+  10 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   217.84us  560.83us  21.16ms   97.31%
+    Req/Sec     6.37k     1.07k   10.99k    75.37%
+  637863 requests in 10.10s, 78.47MB read
+Requests/sec:    63153.19
+Transfer/sec:    7.77MB
